@@ -34,13 +34,13 @@ export default async function RootLayout({ children }: Props) {
   return (
     <html lang="ja">
       <head>
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-BLY3P4C351" />
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-SRP75E3E41" />
         <Script id="google-analytics">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-BLY3P4C351');
+            gtag('config', 'G-SRP75E3E41');
           `}
         </Script>
         <script
