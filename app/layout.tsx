@@ -43,11 +43,13 @@ export default async function RootLayout({ children }: Props) {
             gtag('config', 'G-SRP75E3E41');
           `}
         </Script>
-        <script
+        <Script
+          id="adsense"
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3598027223624482"
           crossOrigin="anonymous"
-        ></script>
+          strategy="afterInteractive"
+        />
       </head>
       <body>
         <Header />
