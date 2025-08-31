@@ -10,14 +10,14 @@ import Script from 'next/script';
 export const metadata = {
   metadataBase: new URL(process.env.BASE_URL || 'http://localhost:3000'),
   title: 'ふたりごとnote',
-  description: '婚約から海外挙式までの実体験とChatGPT活用法で、理想の結婚準備を効率化するブログ。',
+  description: '夫婦それぞれがChatGPTと対話した学びや暮らしを綴るブログ。',
   openGraph: {
     title: {
       default: 'ふたりごとnote',
       en: 'futarigotonote',
     },
     description:
-      '婚約から海外挙式までの実体験とChatGPT活用法で、理想の結婚準備を効率化するブログ。',
+      '夫婦それぞれがChatGPTと対話した学びや暮らしを綴るブログ。',
     images: '/ogp.png',
   },
   alternates: {
