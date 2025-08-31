@@ -1,39 +1,39 @@
 import { Metadata } from 'next';
-import { getList, getCategory } from '@/libs/microcms';
+import { getList, getWriter } from '@/libs/microcms';
 import { LIMIT } from '@/constants';
 import Pagination from '@/components/Pagination';
 import ArticleList from '@/components/ArticleList';
 
 type Props = {
   params: Promise<{
-    categoryId: string;
+    writerId: string;
   }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { categoryId } = await params;
-  const category = await getCategory(categoryId);
+  const { writerId } = await params;
+  const writer = await getWriter(writerId);
   return {
-    title: category.name,
+    title: writer.name,
     openGraph: {
-      title: category.name,
+      title: writer.name,
     },
     alternates: {
-      canonical: `/categories/${categoryId}`,
+      canonical: `/writers/${writerId}`,
     },
   };
 }
 
 export default async function Page({ params }: Props) {
-  const { categoryId } = await params;
+  const { writerId } = await params;
   const data = await getList({
     limit: LIMIT,
-    filters: `category[equals]${categoryId}`,
+    filters: `writer[equals]${writerId}`,
   });
   return (
     <>
       <ArticleList articles={data.contents} />
-      <Pagination totalCount={data.totalCount} basePath={`/categories/${categoryId}`} />
+      <Pagination totalCount={data.totalCount} basePath={`/writers/${writerId}`} />
     </>
   );
 }

@@ -7,6 +7,11 @@ import type {
 } from 'microcms-js-sdk';
 import { unstable_noStore as noStore } from 'next/cache';
 
+// タグの型定義
+export type Tag = {
+  name: string;
+} & MicroCMSContentId & MicroCMSDate;
+
 // カテゴリの型定義
 export type Category = {
   name: string;
@@ -27,6 +32,7 @@ export type Blog = {
   thumbnail?: MicroCMSImage;
   category: Category;
   writer: Writer;
+  tags?: Tag[];
   description: string;
 };
 
@@ -118,6 +124,68 @@ export const getCategory = async (categoryId: string) => {
     return categoryData;
   } catch (error) {
     console.error('Failed to fetch category:', error);
+    return {} as any;
+  }
+};
+
+// タグ一覧を取得
+export const getTagList = async () => {
+  noStore();
+  const client = getClient();
+  try {
+    const listData = await client.getList<Tag>({
+      endpoint: 'tags',
+    });
+    return listData;
+  } catch (error) {
+    console.error('Failed to fetch tag list:', error);
+    return { contents: [] } as any;
+  }
+};
+
+// タグ詳細を取得
+export const getTag = async (tagId: string) => {
+  noStore();
+  const client = getClient();
+  try {
+    const tagData = await client.get<Tag>({
+      endpoint: 'tags',
+      contentId: tagId,
+    });
+    return tagData;
+  } catch (error) {
+    console.error('Failed to fetch tag:', error);
+    return {} as any;
+  }
+};
+
+// ライター一覧を取得
+export const getWriterList = async () => {
+  noStore();
+  const client = getClient();
+  try {
+    const listData = await client.getList<Writer>({
+      endpoint: 'writers',
+    });
+    return listData;
+  } catch (error) {
+    console.error('Failed to fetch writer list:', error);
+    return { contents: [] } as any;
+  }
+};
+
+// ライター詳細を取得
+export const getWriter = async (writerId: string) => {
+  noStore();
+  const client = getClient();
+  try {
+    const writerData = await client.get<Writer>({
+      endpoint: 'writers',
+      contentId: writerId,
+    });
+    return writerData;
+  } catch (error) {
+    console.error('Failed to fetch writer:', error);
     return {} as any;
   }
 };

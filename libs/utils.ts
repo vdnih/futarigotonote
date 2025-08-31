@@ -10,7 +10,8 @@ export const formatDate = (date: string) => {
   return format(jstDate, 'd MMMM, yyyy');
 };
 
-export const formatRichText = (richText: string) => {
+export const formatRichText = (richText?: string) => {
+  if (!richText) return '';
   const $ = cheerio.load(richText);
   const highlight = (text: string, lang?: string) => {
     if (!lang) return hljs.highlightAuto(text);
