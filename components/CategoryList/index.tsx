@@ -4,15 +4,15 @@ import styles from './index.module.css';
 
 type Props = {
   category: Category;
-  // hasLink?: boolean;
+  hasLink?: boolean;
 };
 
-export default function CategoryList({ category}: Props) {
+export default function CategoryList({ category, hasLink = true }: Props) {
   if (!category) return null;
 
   return (
     <div className={styles.tags}>
-      <CategoryListItem category={category}/>
+      <CategoryListItem category={category} hasLink={hasLink} />
     </div>
   );
 }

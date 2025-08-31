@@ -7,18 +7,13 @@ type Props = {
   hasLink?: boolean;
 };
 
-export default function CategoryListItem({ category }: Props) {
-  // if (hasLink) {
-  //   return (
-  //     <Link href={`/categories/${category.id}`} className={styles.tag}>
-  //       #{category.name}
-  //     </Link>
-  //   );
-  // }
-  // return <span className={styles.tag}>#{category.name}</span>;
-  return (
-    <Link href={`/categories/${category.id}`} className={styles.tag}>
-      {category.name}
-    </Link>
-  );
+export default function CategoryListItem({ category, hasLink = true }: Props) {
+  if (hasLink) {
+    return (
+      <Link href={`/categories/${category.id}`} className={styles.tag}>
+        {category.name}
+      </Link>
+    );
+  }
+  return <span className={styles.tag}>{category.name}</span>;
 }
