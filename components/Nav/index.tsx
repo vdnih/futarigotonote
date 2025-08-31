@@ -13,11 +13,6 @@ export default function Nav({ categories }: Props) {
   return (
     <nav className={styles.nav}>
   <h1 className={styles.title}>ふたりごとnote</h1>
-      <div className={styles.menu}>
-        <Link href="/about" className={styles.menuItem}>
-          このブログについて
-        </Link>
-      </div>
       <Suspense fallback={null}>
         <SearchField />
       </Suspense>
