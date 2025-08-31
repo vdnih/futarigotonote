@@ -47,6 +47,8 @@
 .thumbnail {
   width: 960px;
   height: auto;
+  aspect-ratio: 40 / 21;
+  object-fit: cover;
   margin-bottom: 64px;
 }
 
@@ -230,6 +232,8 @@
   .thumbnail {
     width: 100%;
     height: auto;
+    aspect-ratio: 40 / 21;
+    object-fit: cover;
     margin-bottom: 40px;
   }
 

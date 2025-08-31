@@ -10,6 +10,9 @@
 .image {
   width: 240px;
   height: auto;
+  aspect-ratio: 40 / 21;
+  object-fit: cover;
+  display: block;
 }
 
 .title {
@@ -25,6 +28,8 @@
   .image {
     width: 100%;
     height: auto;
+    aspect-ratio: 40 / 21;
+    object-fit: cover;
     margin-bottom: 1rem;
   }
 
