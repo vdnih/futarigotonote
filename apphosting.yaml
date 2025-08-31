@@ -28,4 +28,4 @@ env:
 
   - variable: MICROCMS_API_KEY
     secret: MICROCMS_API_KEY
-    availability: [ RUNTIME ]
+    availability: [ BUILD, RUNTIME ]
