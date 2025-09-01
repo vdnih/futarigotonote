@@ -18,6 +18,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: writer.name,
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: writer.name,
+      site: '@futarigotonote',
+      creator: '@futarigotonote',
+    },
     alternates: {
       canonical: `/writers/${writerId}`,
     },

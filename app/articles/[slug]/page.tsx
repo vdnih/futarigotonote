@@ -24,7 +24,19 @@ export async function generateMetadata({ params, searchParams }: ArticlePageProp
     openGraph: {
       title: data.title,
       description: data.description,
+      type: 'article',
       images: data?.thumbnail?.url ? [data.thumbnail.url] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: data.title,
+      description: data.description,
+      images: data?.thumbnail?.url ? [data.thumbnail.url] : undefined,
+      creator: '@futarigotonote',
+      site: '@futarigotonote',
+    },
+    alternates: {
+      canonical: `/articles/${slug}`,
     },
   };
 }

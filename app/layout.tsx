@@ -18,7 +18,15 @@ export const metadata = {
     },
     description:
       '夫婦それぞれがChatGPTと対話した学びや暮らしを綴るブログ。',
-    images: '/ogp.png',
+    images: '/futarigoto-note.png',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@futarigotonote',
+    creator: '@futarigotonote',
+    title: 'ふたりごとnote',
+    description: '夫婦それぞれがChatGPTと対話した学びや暮らしを綴るブログ。',
+    images: ['/futarigoto-note.png'],
   },
   alternates: {
     canonical: '/',
