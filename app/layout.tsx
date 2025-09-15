@@ -3,6 +3,7 @@ import { LIMIT } from '@/constants';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Nav from '@/components/Nav';
+import SocialLinks from '@/components/SocialLinks';
 import './globals.css';
 import styles from './layout.module.css';
 import Script from 'next/script';
@@ -60,6 +61,7 @@ export default async function RootLayout({ children }: Props) {
       <body>
         <Header />
         <Nav categories={categories.contents} />
+        <SocialLinks />
         <main className={styles.main}>{children}</main>
         <Footer />
       </body>
