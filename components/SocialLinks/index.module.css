@@ -1,0 +1,11 @@
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 0;
+}
+
+.socialLink {
+  color: inherit;
+}
