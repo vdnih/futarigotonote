@@ -12,7 +12,9 @@ type Props = {
 export default function Nav({ categories }: Props) {
   return (
     <nav className={styles.nav}>
-  <h1 className={styles.title}>ふたりごとnote</h1>
+      <Link href="/">
+        <h1 className={styles.title}>ふたりごとnote</h1>
+      </Link>
       <Suspense fallback={null}>
         <SearchField />
       </Suspense>
