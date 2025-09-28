@@ -1,0 +1,8 @@
+# apphosting.emulator.yaml
+env:
+  - variable: MICROCMS_SERVICE_DOMAIN
+    value: "kekkonbu"
+  - variable: MICROCMS_API_KEY
+    value: "RqZOSa7jkEcN7TfRMEN7Mc94PFeqKL8dXCIe"
+  - variable: BASE_URL
+    value: "https://blog--futarigotonote.asia-east1.hosted.app"
