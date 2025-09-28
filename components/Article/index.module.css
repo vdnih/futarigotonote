@@ -241,3 +241,34 @@
     width: 100%;
   }
 }
+
+.navigation {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 80px 0;
+}
+
+.prev,
+.next {
+  display: block;
+  width: 48%;
+}
+
+.prev {
+  text-align: right;
+}
+
+@media (max-width: 640px) {
+  .navigation {
+    display: block;
+    margin: 40px 0;
+  }
+  .prev,
+  .next {
+    width: 100%;
+  }
+  .next {
+    margin-bottom: 24px;
+  }
+}

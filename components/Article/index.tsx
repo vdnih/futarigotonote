@@ -1,13 +1,16 @@
 import Link from 'next/link';
 import { formatRichText } from '@/libs/utils';
-import { type Article } from '@/libs/microcms';
+import { type Article as BaseArticle } from '@/libs/microcms';
 import PublishedDate from '../Date';
 import styles from './index.module.css';
 import Profile from '../Profile';
 import CategoryList from '../CategoryList';
 
 type Props = {
-  data: Article;
+  data: BaseArticle & {
+    prevArticle: { id: string; title: string } | null;
+    nextArticle: { id: string; title: string } | null;
+  };
 };
 
 export default function Article({ data }: Props) {
@@ -76,6 +79,18 @@ export default function Article({ data }: Props) {
         }}
       />
       <Profile writer={data.writer} />
+      <div className={styles.navigation}>
+        {data.nextArticle && (
+          <Link href={`/articles/${data.nextArticle.id}`} className={styles.next}>
+            ←次の記事：{data.nextArticle.title}
+          </Link>
+        )}
+        {data.prevArticle && (
+          <Link href={`/articles/${data.prevArticle.id}`} className={styles.prev}>
+            前の記事：{data.prevArticle.title}→
+          </Link>
+        )}
+      </div>
     </main>
   );
 }

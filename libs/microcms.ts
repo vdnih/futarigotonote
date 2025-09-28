@@ -90,10 +90,49 @@ export const getDetail = async (contentId: string, queries?: MicroCMSQueries) =>
       contentId,
       queries,
     });
-    return detailData;
+
+    if (!detailData.publishedAt) {
+      return {
+        ...detailData,
+        prevArticle: null,
+        nextArticle: null,
+      };
+    }
+
+    // 前の記事を取得
+    const prevArticleResponse = await client.getList<Blog>({
+      endpoint: 'blogs',
+      queries: {
+        filters: `publishedAt[less_than]${detailData.publishedAt}`,
+        orders: '-publishedAt',
+        limit: 1,
+        fields: 'title,id',
+      },
+    });
+
+    // 次の記事を取得
+    const nextArticleResponse = await client.getList<Blog>({
+      endpoint: 'blogs',
+      queries: {
+        filters: `publishedAt[greater_than]${detailData.publishedAt}`,
+        orders: 'publishedAt',
+        limit: 1,
+        fields: 'title,id',
+      },
+    });
+
+    return {
+      ...detailData,
+      prevArticle: prevArticleResponse.contents[0] || null,
+      nextArticle: nextArticleResponse.contents[0] || null,
+    };
   } catch (error) {
     console.error('Failed to fetch blog detail:', error);
-    return {} as Article;
+    return {
+      ...({} as Article),
+      prevArticle: null,
+      nextArticle: null,
+    };
   }
 };
 
