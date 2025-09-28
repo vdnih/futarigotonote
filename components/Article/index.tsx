@@ -82,12 +82,16 @@ export default function Article({ data }: Props) {
       <div className={styles.navigation}>
         {data.nextArticle && (
           <Link href={`/articles/${data.nextArticle.id}`} className={styles.next}>
-            ←次の記事：{data.nextArticle.title}
+            {'<< 次の記事'}
+            <br />
+            {data.nextArticle.title}
           </Link>
         )}
         {data.prevArticle && (
           <Link href={`/articles/${data.prevArticle.id}`} className={styles.prev}>
-            前の記事：{data.prevArticle.title}→
+            {'前の記事 >>'}
+            <br />
+            {data.prevArticle.title}
           </Link>
         )}
       </div>
