@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './index.module.css';
 import { Writer } from '@/libs/microcms';
 
@@ -10,7 +11,7 @@ export default function Profile({ writer }: Props) {
     return null;
   }
   return (
-    <div className={styles.wrapper}>
+    <Link href={`/writers/${writer.id}`} className={styles.wrapper}>
       <picture>
         <source
           type="image/webp"
@@ -28,6 +29,6 @@ export default function Profile({ writer }: Props) {
         <p className={styles.name}>{writer?.name}</p>
         <p className={styles.profile}>{writer?.profile}</p>
       </div>
-    </div>
+    </Link>
   );
 }
