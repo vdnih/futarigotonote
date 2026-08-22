@@ -6,35 +6,14 @@
       "node_modules",
       ".git",
       "firebase-debug.log",
-      "firebase-debug.*.log",
-      "functions"
+      "firebase-debug.*.log"
     ]
   },
-  "functions": [
-    {
-      "source": "functions",
-      "codebase": "default",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log",
-        "*.local"
-      ],
-      "predeploy": [
-        "npm --prefix \"$RESOURCE_DIR\" run lint",
-        "npm --prefix \"$RESOURCE_DIR\" run build"
-      ]
-    }
-  ],
   "emulators": {
     "apphosting": {
       "port": 5002,
       "rootDirectory": "./",
       "startCommand": "npm run dev"
-    },
-    "functions": {
-      "port": 5001
     },
     "ui": {
       "enabled": true
